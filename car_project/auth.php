@@ -1,6 +1,6 @@
 <?php
 
-// Put this at the TOP of every page that needs a logged-in user.
+// Put this at the TOP of ea logged-in use.
 
 session_start();
 
