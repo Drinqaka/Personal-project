@@ -3,7 +3,6 @@
 include("auth.php");
 include_once("config.php");
 
-// Get the current data of the logged-in user
 $sql = "SELECT * FROM users WHERE id=:id";
 $prep = $conn->prepare($sql);
 $prep->bindParam(":id", $_SESSION['user_id']);

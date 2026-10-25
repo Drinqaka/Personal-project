@@ -1,6 +1,5 @@
 <?php
 
-// Change these to match YOUR database connection
 $user = "root";
 $pass = "Drinqaka2022.";
 $server = "localhost";

@@ -1,10 +1,7 @@
--- Run this in phpMyAdmin (SQL tab) or the MySQL console.
 
 CREATE DATABASE IF NOT EXISTS cardb;
 USE cardb;
 
--- 1) USERS: people who register and log in
---    role is either 'user' (normal) or 'admin' (can manage cars)
 CREATE TABLE IF NOT EXISTS users (
     id INT NOT NULL AUTO_INCREMENT,
     name VARCHAR(50) NOT NULL,
@@ -16,7 +13,6 @@ CREATE TABLE IF NOT EXISTS users (
     PRIMARY KEY (id)
 );
 
--- 2) CARS: the cars that can be rented
 CREATE TABLE IF NOT EXISTS cars (
     id INT NOT NULL AUTO_INCREMENT,
     brand VARCHAR(50) NOT NULL,
@@ -28,9 +24,6 @@ CREATE TABLE IF NOT EXISTS cars (
     PRIMARY KEY (id)
 );
 
--- 3) RENTALS: which user rented which car
---    user_id -> points to users.id  (foreign key)
---    car_id  -> points to cars.id   (foreign key)
 CREATE TABLE IF NOT EXISTS rentals (
     id INT NOT NULL AUTO_INCREMENT,
     user_id INT NOT NULL,
@@ -43,13 +36,7 @@ CREATE TABLE IF NOT EXISTS rentals (
     FOREIGN KEY (car_id) REFERENCES cars(id) ON DELETE CASCADE
 );
 
--- Some sample cars so the page is not empty
 INSERT INTO cars (brand, model, year, color, price_per_day, description) VALUES
 ('Volkswagen', 'Golf', 2019, 'Blue', 35.00, 'Reliable and economical city car.'),
 ('BMW', '320d', 2020, 'Black', 60.00, 'Comfortable sedan, great for long trips.'),
 ('Toyota', 'Yaris', 2021, 'White', 28.00, 'Small, easy to park, very low fuel use.');
-
--- HOW TO MAKE AN ADMIN:
--- 1. Register a normal account on the website.
--- 2. Run this (change 'yourusername' to your username):
---    UPDATE users SET role = 'admin' WHERE username = 'yourusername';

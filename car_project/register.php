@@ -13,7 +13,6 @@ if (isset($_POST['submit'])) {
         echo "You need to fill all data";
         header("refresh:2; url=signup.php");
     } else {
-        // Check if the username or email is already used
         $sql = "SELECT * FROM users WHERE email=:email OR username=:username";
         $check = $conn->prepare($sql);
         $check->bindParam(":email", $email);
@@ -24,10 +23,8 @@ if (isset($_POST['submit'])) {
             echo "This username or email already exists!";
             header("refresh:2; url=signup.php");
         } else {
-            // We hash the password so it is not saved as plain text
             $hashed_password = password_hash($password, PASSWORD_BCRYPT);
 
-            // role is not inserted: the database gives 'user' by default
             $sql = "INSERT INTO users(name,surname,username,email,password)
                     VALUES (:name,:surname,:username,:email,:password)";
             $insert = $conn->prepare($sql);

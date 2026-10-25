@@ -5,7 +5,6 @@ include_once("config.php");
 
 $id = $_GET['id'];
 
-// Get the rental, but only if it belongs to the logged-in user
 $sql = "SELECT rentals.*, cars.brand, cars.model
         FROM rentals
         JOIN cars ON rentals.car_id = cars.id
@@ -16,7 +15,6 @@ $prep->bindParam(":user_id", $_SESSION['user_id']);
 $prep->execute();
 $rental = $prep->fetch();
 
-// If the rental does not exist (or it is not yours), go back
 if (!$rental) {
     header("Location: myRentals.php");
     exit();

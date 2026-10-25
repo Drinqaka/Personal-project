@@ -3,7 +3,6 @@
 include("admin.php");
 include_once("config.php");
 
-// UPDATE a car
 if (isset($_POST['submit'])) {
     $id = $_POST['id'];
     $brand = $_POST['brand'];

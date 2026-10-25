@@ -20,7 +20,6 @@ if (isset($_POST['submit'])) {
             $user = $prep->fetch();
 
             if (password_verify($password, $user['password'])) {
-                // Save the user in the session = the user is logged in
                 $_SESSION['user_id'] = $user['id'];
                 $_SESSION['username'] = $user['username'];
                 $_SESSION['role'] = $user['role'];

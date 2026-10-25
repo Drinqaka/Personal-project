@@ -3,7 +3,6 @@
 include("auth.php");
 include_once("config.php");
 
-// UPDATE a rental
 if (isset($_POST['submit'])) {
     $id = $_POST['id'];
     $days = $_POST['days'];

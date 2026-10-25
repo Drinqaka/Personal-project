@@ -11,7 +11,6 @@ $prep->bindParam(":id", $id);
 $prep->execute();
 $car = $prep->fetch();
 
-// If the car does not exist, go back
 if (!$car) {
     header("Location: dashboard.php");
     exit();

@@ -10,7 +10,6 @@ if (isset($_POST['submit'])) {
     $password = $_POST['password'];
     $id = $_SESSION['user_id'];
 
-    // Make sure nobody else already uses this email
     $sql = "SELECT * FROM users WHERE email=:email AND id != :id";
     $check = $conn->prepare($sql);
     $check->bindParam(":email", $email);
@@ -22,11 +21,9 @@ if (isset($_POST['submit'])) {
         header("refresh:2; url=profile.php");
     } else {
         if (empty($password)) {
-            // Keep the old password
             $sql = "UPDATE users SET name=:name, surname=:surname, email=:email WHERE id=:id";
             $prep = $conn->prepare($sql);
         } else {
-            // Save the new password (hashed)
             $hashed_password = password_hash($password, PASSWORD_BCRYPT);
             $sql = "UPDATE users SET name=:name, surname=:surname, email=:email, password=:password WHERE id=:id";
             $prep = $conn->prepare($sql);

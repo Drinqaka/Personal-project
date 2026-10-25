@@ -3,8 +3,6 @@
 include("auth.php");
 include_once("config.php");
 
-// READ: the rentals of the logged-in user.
-// JOIN gets the car brand, model and price from the cars table.
 $sql = "SELECT rentals.*, cars.brand, cars.model, cars.price_per_day
         FROM rentals
         JOIN cars ON rentals.car_id = cars.id

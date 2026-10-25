@@ -3,7 +3,7 @@
 include("auth.php");
 include_once("config.php");
 
-// READ: get all the cars (oldest first = 1, 2, 3)
+
 $sql = "SELECT * FROM cars ORDER BY id ASC";
 $prep = $conn->prepare($sql);
 $prep->execute();

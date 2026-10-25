@@ -3,7 +3,7 @@
 include("admin.php");
 include_once("config.php");
 
-// CREATE a car
+
 if (isset($_POST['submit'])) {
     $brand = $_POST['brand'];
     $model = $_POST['model'];

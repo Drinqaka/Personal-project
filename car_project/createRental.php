@@ -3,7 +3,7 @@
 include("auth.php");
 include_once("config.php");
 
-// CREATE a rental
+
 if (isset($_POST['submit'])) {
     $car_id = $_POST['car_id'];
     $days = $_POST['days'];
