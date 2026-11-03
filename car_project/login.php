@@ -4,7 +4,7 @@
 
     <form class="form-signin" action="loginLogic.php" method="post">
 
-        <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+        <h1 class="h3 mb-3 font-weight-normal">Sign in</h1>
 
         <input type="text" class="form-control" placeholder="Username" name="username" required autofocus>
 
