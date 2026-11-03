@@ -1,9 +1,9 @@
 <?php
 
 $user = "root";
-$pass = "Drinqaka2022.";
+$pass = "";
 $server = "localhost";
-$dbname = "car_project";
+$dbname = "cardb";
 
 try {
 
